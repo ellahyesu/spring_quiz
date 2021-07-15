@@ -9,12 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.quiz.lesson02.bo.StoreBO;
 import com.quiz.lesson02.model.Store;
 
-@RestController
+@RestController // @Controller + @ResponseBody
 public class Lesson02Quiz01RestController {
 
 	@Autowired
 	private StoreBO storeBO;
 	
+	// 요청 url - http://localhost/lesson02/quiz01
 	@RequestMapping("/lesson02/quiz01")
 	public List<Store> quiz01() {
 		List<Store> storeList = storeBO.getStoreList();

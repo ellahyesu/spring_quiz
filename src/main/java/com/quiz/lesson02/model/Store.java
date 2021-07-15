@@ -5,7 +5,7 @@ import java.util.Date;
 public class Store {
 
 	private int id;
-	private String name;
+	private String storeName;
 	private String phoneNumber;
 	private String address;
 	private String businessNumber;
@@ -19,11 +19,11 @@ public class Store {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getStoreName() {
+		return storeName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
 	}
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -61,5 +61,6 @@ public class Store {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
 	
 }
