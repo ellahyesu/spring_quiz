@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.quiz.lesson03.dao.RealEstateDAO;
 import com.quiz.lesson03.model.RealEstate;
@@ -19,7 +18,7 @@ public class RealEstateBO {
 		return realEstateDAO.selectRealEstateById(id);
 	}
 	
-	public List<RealEstate> getRealEstateListByRentPrice(int rentPrice) {
+	public List<RealEstate> getRealEstateListByRentPrice(Integer rentPrice) {
 		return realEstateDAO.selectRealEstateListByRentPrice(rentPrice);
 	}
 	
@@ -27,11 +26,25 @@ public class RealEstateBO {
 		return realEstateDAO.selectRealEstateListByAreaAndPrice(area, price);
 	}
 	
+	//--------------- insert ---------------//
+	
 	public int insertRealEstate(RealEstate realEstate) {
 		return realEstateDAO.insertRealEstate(realEstate);
 	}
 	
-	public int insertRealEstateAsField(int realtorId, String address, int area, String type, int price, int rentPrice) {
+	public int insertRealEstateAsField(int realtorId, String address, int area, String type, int price, Integer rentPrice) {
 		return realEstateDAO.insertRealEstateAsField(realtorId, address, area, type, price, rentPrice);
+	}
+	
+	//--------------- update ---------------//
+	
+	public int updateRealEstate(int id, String type, int price) {
+		return realEstateDAO.updateRealEstate(id, type, price);
+	}
+	
+	//--------------- delete ---------------//
+	
+	public int deleteRealEstateById(int id) {
+		return realEstateDAO.deleteRealEstateById(id);
 	}
 }

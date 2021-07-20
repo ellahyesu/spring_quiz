@@ -61,7 +61,9 @@
 		ORDER BY id DESC
    </select>
    
-   <insert id="insertRealEstate" parameterType="map">
+   <!-- quiz02 - insert문 -->
+   
+   <insert id="insertRealEstate" parameterType="com.quiz.lesson03.model.RealEstate">
    		INSERT INTO `real_estate`	
    		(
    			`realtorId`
@@ -69,6 +71,9 @@
 			, `area`
 			, `type`
 			, `price`
+			, `rentPrice`
+			, `createdAt`
+			, `updatedAt`
    		)
    		VALUES 
    		(
@@ -77,6 +82,9 @@
 			, #{area}
 			, #{type}
 			, #{price}
+			, #{rentPrice}
+			, NOW()
+			, NOW()
    		)
    </insert>
    
@@ -89,17 +97,38 @@
 			, `type`
 			, `price`
 			, `rentPrice`
+			, `createdAt`
+			, `updatedAt`
    		)
    		VALUES 
    		(
-	   		#{realtor_id}
+   			#{realtorId}
 			, #{address}
 			, #{area}
 			, #{type}
 			, #{price}
 			, #{rentPrice}
+			, NOW()
+			, NOW()
    		)
    </insert>
    
+   <update id="updateRealEstate" parameterType="map">
+   		UPDATE `real_estate`
+   		SET
+   			`type` = #{type}
+   			, `price` = #{price}
+   			, `updatedAt`= NOW() 
+   		WHERE
+   			`id` = #{id}
+   </update>
+   
+   <delete id="deleteRealEstateById" parameterType="int">
+   		DELETE
+   		FROM
+   			`real_estate`
+  		WHERE
+  			`id` = #{id}
+   </delete>
 </mapper>
  
