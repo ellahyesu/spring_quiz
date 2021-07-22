@@ -8,7 +8,7 @@
        (
        		`nickname`
        		, `profileImageUrl`
-       		, `temparature`
+       		, `temperature`
        		, `createdAt`
        		, `updatedAt`
        )
@@ -16,7 +16,7 @@
        (
        		#{nickname}
        		, #{profileImageUrl}
-       		, #{temparature}
+       		, #{temperature}
        		, NOW()
        		, NOW()
        )
@@ -27,7 +27,7 @@
    			`id`
    			, `nickname`
        		, `profileImageUrl`
-       		, `temparature`
+       		, `temperature`
        		, `createdAt`
        		, `updatedAt`
    		FROM
@@ -41,12 +41,13 @@
    			`id`
    			, `nickname`
        		, `profileImageUrl`
-       		, `temparature`
+       		, `temperature`
        		, `createdAt`
        		, `updatedAt`
    		FROM
    			`seller`
-   		WHERE `id` = #{id}
+   		WHERE 
+   			`id` = #{id}
    </select>
    
 </mapper>

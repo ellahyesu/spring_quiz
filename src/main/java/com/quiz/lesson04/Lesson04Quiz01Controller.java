@@ -28,20 +28,19 @@ public class Lesson04Quiz01Controller {
 	@PostMapping("/add_seller")
 	public String addSeller(
 			@RequestParam("nickname") String nickname,
-			@RequestParam("profileImageUrl") String profileImageUrl,
-			@RequestParam("temparature") double temparature
+			@RequestParam("profile_url") String profileImageUrl,
+			@RequestParam("temperature") double temperature
 	) {
-		sellerBO.insertSeller(nickname, profileImageUrl, temparature);
+		sellerBO.insertSeller(nickname, profileImageUrl, temperature);
 		return "lesson04/afterAddSeller";
 	}
 	@GetMapping("/seller_info")
 	public String getSellerView(
-			Model model,
-			@RequestParam(value="id", required=false) Integer id // 비필수 파라미터 defaultValue="1"
+			@RequestParam(value="id", required=false) Integer id // 비필수 파라미터
+			, Model model
 	) {
 		Seller seller = sellerBO.getSellerById(id);
-		model.addAttribute("result", seller);
-		model.addAttribute("subject", "판매자 정보");
+		model.addAttribute("seller", seller);
 		
 		return "lesson04/getSeller";
 	}

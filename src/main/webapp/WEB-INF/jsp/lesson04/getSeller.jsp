@@ -14,9 +14,10 @@
 <body>
 	<div class="container">
 		<h3><b>판매자 정보</b></h3>
-		<img src="${result.profileImageUrl}" width="200px" height="200px">
-		<h2>${result.nickname}</h2>
-		<h4 class="text-warning">${result.temparature}</h4>
+		<%-- ${} => EL문법 --%>
+		<img src="${seller.profileImageUrl}" alt="판매자 프로필 사진" width="200px" height="200px">
+		<h2>${seller.nickname}</h2>
+		<h4 class="text-warning">${seller.temperature}</h4>
 	</div>
 </body>
 </html>

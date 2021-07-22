@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>판매자 추가 화면</title>
+<title>${subject}</title>
 <!-- bootstrap CDN link -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -13,22 +13,31 @@
 </head>
 <body>
 	<div class="container">
-		<h1>판매자 추가</h1>
-		<form method="post" action="/lesson04/quiz01/add_seller">
-			<label for="nickname" class="col-8">
-				<div>닉네임</div><input type="text" name="nickname" class="form-control">
-			</label><br>
-			
-			<label for="profile_url" class="col-8">
-				<div>프로필 사진 url</div><input type="text" name="profile_url" class="form-control">
-			</label><br>
-			
-			<label for="temperature" class="col-8">
-				<div>온도</div><input type="text" name="temperature" class="form-control">
-			</label><br>
-			
-			<input type="submit" class="btn btn-primary" value="추가">
-		</form>
+		<h1 class="display-4">${subject}</h1>
+		
+		<table class="table">
+			<tr>
+				<th>ID</th>
+				<td>${result.id}</td>
+			</tr>
+			<tr>
+				<th>상호명</th>
+				<td>${result.office}</td>
+			</tr>
+			<tr>
+				<th>전화 번호</th>
+				<td>${result.phoneNumber}</td>
+			</tr>
+			<tr>
+				<th>주소</th>
+				<td>${result.address}</td>
+			</tr>
+			<tr>
+				<th>등급</th>
+				<td>${result.grade}</td>
+			</tr>
+		</table>
 	</div>
+				
 </body>
 </html>

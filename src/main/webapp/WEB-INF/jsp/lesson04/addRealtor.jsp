@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>판매자 추가 화면</title>
+<title>Insert title here</title>
 <!-- bootstrap CDN link -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -13,21 +13,18 @@
 </head>
 <body>
 	<div class="container">
-		<h1>판매자 추가</h1>
-		<form method="post" action="/lesson04/quiz01/add_seller">
-			<label for="nickname" class="col-8">
-				<div>닉네임</div><input type="text" name="nickname" class="form-control">
-			</label><br>
+		<form method="post" action="/lesson04/quiz02/add_realtor">
+			<h1>공인중개사 추가</h1>
+			<b>상호명</b>
+			<input type="text" name="office" class="form-control col-6"><br>
+			<b>전화번호</b>
+			<input type="text" name="phoneNumber" class="form-control col-6"><br>
+			<b>주소</b>
+			<input type="text" name="address" class="form-control col-6"><br>
+			<b>등급</b>
+			<input type="text" name="grade" class="form-control col-6"><br>
 			
-			<label for="profile_url" class="col-8">
-				<div>프로필 사진 url</div><input type="text" name="profile_url" class="form-control">
-			</label><br>
-			
-			<label for="temperature" class="col-8">
-				<div>온도</div><input type="text" name="temperature" class="form-control">
-			</label><br>
-			
-			<input type="submit" class="btn btn-primary" value="추가">
+			<input type="submit" class="btn btn-primary form-control col-6" value="추가">
 		</form>
 	</div>
 </body>

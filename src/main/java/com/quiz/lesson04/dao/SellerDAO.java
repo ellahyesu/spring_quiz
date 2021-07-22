@@ -11,7 +11,7 @@ public interface SellerDAO {
 	public void insertSeller(
 			@Param("nickname") String nickname, 
 			@Param("profileImageUrl") String profileImageUrl, 
-			@Param("temparature") double temparature);
+			@Param("temperature") double temperature);
 	
 	public Seller selectLastSeller();
 	
