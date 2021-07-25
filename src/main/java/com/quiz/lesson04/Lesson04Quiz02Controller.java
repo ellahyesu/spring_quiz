@@ -24,6 +24,10 @@ public class Lesson04Quiz02Controller {
 		return "lesson04/addRealtor";
 	}
 	
+	// 1. 파라미터를 받는다
+	// 2. 받은 파라미터를 insert로 받는다
+	// 3. DB에서 select를 해와서 아래 페이지에 넣는다
+	
 	@PostMapping("/add_realtor")
 	public String addRealtor(
 			@ModelAttribute Realtor realtor,
