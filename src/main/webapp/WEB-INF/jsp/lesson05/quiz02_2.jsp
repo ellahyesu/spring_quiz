@@ -31,10 +31,10 @@
 						<td>${member.name}</td>
 						<td>${member.phoneNumber}</td>
 						<c:choose>
-							<c:when test="${member.grade == 'VIP'}">
+							<c:when test="${member.grade eq 'VIP'}">
 								<td class="text-danger">${member.grade}</td>
 							</c:when>
-							<c:when test="${member.grade == 'GOLD'}">
+							<c:when test="${member.grade eq 'GOLD'}">
 								<td class="text-warning">${member.grade}</td>
 							</c:when>
 							<c:otherwise>
