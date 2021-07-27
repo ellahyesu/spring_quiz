@@ -44,7 +44,7 @@
 							<fmt:formatNumber value="${candidate}" />
 						</td>
 						<td>
-							<fmt:formatNumber value="${candidate * 0.000001}" type="percent" />
+							<fmt:formatNumber value="${candidate / totalCount}" type="percent" />
 						</td>
 					</tr>
 				</c:forEach>
