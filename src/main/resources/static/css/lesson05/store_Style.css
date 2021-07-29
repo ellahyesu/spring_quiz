@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.bg-theme {
+	background-color: mediumturquoise;
+}
+
+
+.box-theme {
+	border: 1px solid mediumturquoise;
+	border-radius: 5px;
+}
+
+header {
+	height: 50px;
+}

@@ -43,29 +43,27 @@
 			<tbody>
 				<c:forEach var="member" items="${members}" varStatus="status">
 					<tr>
-						<td class="text-center">${status.count}</td>
-						<td class="text-center">${member.name}</td>
-						<c:set var="phoneNumber" value="${member.phoneNumber}" />
+						<td>${status.count}</td>
+						<td>${member.name}</td>
 						<c:choose>
-							<c:when test="${fn:startsWith(phoneNumber, '010-')}">
-								<td class="text-center">${member.phoneNumber}</td>
+							<c:when test="${fn:startsWith(member.phoneNumber, '010-')}">
+								<td>${member.phoneNumber}</td>
 							</c:when>
 							<c:otherwise>
-								<td class="text-center">유효하지 않은 전화번호</td>
+								<td>유효하지 않은 전화번호</td>
 							</c:otherwise>
 						</c:choose>
-						<c:set var="nationality" value="${member.nationality}" />
-						<td class="text-center">
-							${fn:replace(nationality, '삼국시대', '삼국 - ')}
+						<td>
+							${fn:replace(member.nationality, '삼국시대', '삼국 - ')}
 						</td> 
 						<c:set var="email" value="${member.email}" />
-						<td class="text-center">
+						<td>
 							<b>${fn:split(email, '@')[0]}</b>@${fn:split(email, '@')[1]}
 						</td>
 						<c:set var="introduce" value="${member.introduce}" />
 						<c:choose>
 							<c:when test="${fn:length(introduce) > 15}">
-								<td>${fn:substring(introduce, 0, 15)}...</td>
+								<td class="text-left">${fn:substring(introduce, 0, 15)}...</td>
 							</c:when>
 							<c:otherwise>
 								<td>${fn:substring(introduce, 0, 15)}</td>

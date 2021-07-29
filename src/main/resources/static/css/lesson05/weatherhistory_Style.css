@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#wrap {
+	width: 1200px;
+}
+
+.logoText:link {
+	text-decoration: none;
+}
+
+ul > li > a:hover {
+	border: 2px solid white;
+}
+
+#head_logo{
+	width: 35px;	
+}
+
+.contents {
+}
+
+footer {
+	height: 70px;
+}
+
+#foot_logo {
+}
