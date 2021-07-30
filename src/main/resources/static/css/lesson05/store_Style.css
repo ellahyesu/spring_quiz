@@ -1,4 +1,21 @@
 @charset "UTF-8";
+ 
+button {
+	border: 0;
+	outline: 0;
+	background-color: white;
+	padding: 0;
+	margin: 0;
+}
+ 
+a:link {
+	text-decoration: none;
+	color: black;
+}
+
+#store {
+	color: black;
+}
 
 .bg-theme {
 	background-color: mediumturquoise;
@@ -8,6 +25,12 @@
 .box-theme {
 	border: 1px solid mediumturquoise;
 	border-radius: 5px;
+}
+
+.bg-menu {
+	background-color: lightgray;
+	border-radius: 3px;
+	font-size: 12px;
 }
 
 header {

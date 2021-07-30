@@ -17,20 +17,22 @@
 </head>
 <body>
 	<div id="wrap" class="container">
-		<header class="bg-theme">
-			<b class="text-white">배탈의 민족</b>
-		</header>
+		<jsp:include page="header.jsp" />
 		<h2>우리동네 가게</h2>
 		
 		<c:forEach var="store" items="${storeList}">
 		<div class="box-theme p-2 mb-3">
-			<div><b>${store.storeName}</b></div>
-			<div><small>전화 번호 : ${store.phoneNumber}</small></div>
-			<div><small>주소 : ${store.address}</small></div>
+			<a href="/store/store_review?storeId=${store.id}&storeName=${store.storeName}">
+			<button type="submit">
+				<div class="text-left"><b>${store.storeName}</b></div>
+				<div class="text-left"><small>전화 번호 : ${store.phoneNumber}</small></div>
+				<div class="text-left"><small>주소 : ${store.address}</small></div>
+			</button>			
+			</a>
 		</div>
 		</c:forEach>
-		<footer>
-		</footer>
+		
+		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>

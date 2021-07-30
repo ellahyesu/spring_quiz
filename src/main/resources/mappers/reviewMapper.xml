@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.quiz.review.dao.NewReviewDAO">
+    <select id="selectReviewByStoreId" parameterType="int" resultType="com.quiz.review.model.NewReview">
+        SELECT
+            `id`
+            , `storeId`
+            , `menu`
+            , `userName`
+            , `point`
+            , `review`
+            , `createdAt`
+            , `updatedAt`
+        FROM
+            `new_review`
+        WHERE
+        	`storeId` = #{storeId}
+    </select>
+    
+    <select id="selectReviewByIdAndStoreName" resultType="com.quiz.review.model.NewReview">
+        SELECT
+	        A.* ,b.*
+        FROM
+            `new_review` AS A
+		LEFT JOIN
+			`store` AS B
+		ON 
+			A.storeId = B.id
+		WHERE 
+			B.storeName = #{storeName}
+		AND
+			A.storeId = #{storeId}
+    </select>
+ </mapper>

@@ -9,4 +9,5 @@ import com.quiz.lesson02.model.Store;
 @Repository
 public interface StoreDAO {
 	public List<Store> selectStoreList();
+	
 }
