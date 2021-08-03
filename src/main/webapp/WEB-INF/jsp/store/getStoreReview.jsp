@@ -21,42 +21,43 @@
 		<jsp:include page="header.jsp" />
 		<h2>${storeName} - 리뷰</h2>
 		
-		<c:forEach var="newReview" items="${newReviewList}" varStatus="status">
 		<c:choose>
-			<c:when test="${!empty newReview}">
-			<div class="box-theme p-2 mb-3">
-				<b>${newReview.userName}</b>
-				<small>
-				<c:set var="pointCnt" value="${newReview.point / 1}" />
-				<c:set var="pointCntRemain" value="${newReview.point % 1}" />
-				<c:forEach var="pointStar" begin="0" end="${pointCnt - 1}" step="1">
-					<img src="/imgs/star_fill.PNG" width="15px" class="mb-1">
-				</c:forEach>
-				<c:if test="${pointCntRemain > 0}">
-					<img src="/imgs/star_half.PNG" width="15px" class="mb-1">
-					<c:set var="pointCnt" value="${pointCnt + 1}" />
-				</c:if>
-				<c:if test="${pointCnt < 5}">
-					<c:forEach var="pointStar" begin="0" end="${5 - pointCnt - 1}" step="1">
-						<img src="/imgs/star_empty.PNG" width="15px" class="mb-1">
-					</c:forEach>
-				</c:if>
-				</small>
-				<div class="mb-2">
-					<small class="text-secondary">
-					<fmt:formatDate value="${newReview.updatedAt}" pattern="yyyy년 M월 d일" />
-					</small>
-				</div>
-				<div class="mb-2">${newReview.review}</div>
-				<div>
-				<span class="bg-menu">${newReview.menu}</span>
-				</div>
-			</div>
+			<c:when test="${empty newReviewList}">
+				<div>작성된 리뷰가 없습니다.</div>
 			</c:when>
-			<c:otherwise><div>작성된 리뷰가 없습니다.</div></c:otherwise>
+			<c:otherwise>
+				<c:forEach var="newReview" items="${newReviewList}" varStatus="status">
+				<div class="box-theme p-2 mb-3">
+					<b>${newReview.userName}</b>
+					<small>
+					<c:set var="pointCnt" value="${newReview.point / 1}" />
+					<c:set var="pointCntRemain" value="${newReview.point % 1}" />
+					<c:forEach var="pointStar" begin="0" end="${pointCnt - 1}" step="1">
+						<img src="/imgs/star_fill.PNG" width="15px" class="mb-1">
+					</c:forEach>
+					<c:if test="${pointCntRemain ne 0}">
+						<img src="/imgs/star_half.PNG" width="15px" class="mb-1">
+						<c:set var="pointCnt" value="${pointCnt + 1}" />
+					</c:if>
+					<c:if test="${pointCnt < 5}">
+						<c:forEach var="pointStar" begin="0" end="${5 - pointCnt - 1}" step="1">
+							<img src="/imgs/star_empty.PNG" width="15px" class="mb-1">
+						</c:forEach>
+					</c:if>
+					</small>
+					<div class="mb-2">
+						<small class="text-secondary">
+						<fmt:formatDate value="${newReview.updatedAt}" pattern="yyyy년 M월 d일" />
+						</small>
+					</div>
+					<div class="mb-2">${newReview.review}</div>
+					<div>
+					<span class="bg-menu">${newReview.menu}</span>
+					</div>
+				</div>
+				</c:forEach>
+			</c:otherwise>
 		</c:choose>
-		</c:forEach>
-		
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>
