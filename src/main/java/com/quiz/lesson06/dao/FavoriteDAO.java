@@ -16,4 +16,6 @@ public interface FavoriteDAO {
 	
 	public List<Favorite> selectFavoriteList();
 	
+	public boolean existfavoriteByUrl(String url); // Param이 1개 일때는 생략 가능
+	
 }

@@ -27,6 +27,17 @@ public class Lesson06Quiz01Controller {
 		return "lesson06/addNewSite";
 	}
 	
+	@RequestMapping("/is_duplication")
+	@ResponseBody
+	public Map<String, Boolean> isUrlDuplication(
+			@RequestParam("url") String url) {
+		boolean isDuplication = favoriteBO.existfavoriteByUrl(url);
+		
+		Map<String, Boolean> result = new HashMap<>();
+		result.put("isDuplication", isDuplication);
+		return result;
+	}
+	
 	// AJAX의 요청이 왔을 때,
 	// - 서버 쪽에서 @ResponseBody 어노테이션을 사용해야 한다.
 	// - 리턴되는 값이 반드시 있어야 한다.
