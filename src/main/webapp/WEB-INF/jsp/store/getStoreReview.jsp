@@ -33,15 +33,15 @@
 					<c:set var="pointCnt" value="${newReview.point / 1}" />
 					<c:set var="pointCntRemain" value="${newReview.point % 1}" />
 					<c:forEach var="pointStar" begin="0" end="${pointCnt - 1}" step="1">
-						<img src="/imgs/star_fill.PNG" width="15px" class="mb-1">
+						<img src="/imgs/store/star_fill.PNG" width="15px" class="mb-1">
 					</c:forEach>
 					<c:if test="${pointCntRemain ne 0}">
-						<img src="/imgs/star_half.PNG" width="15px" class="mb-1">
+						<img src="/imgs/store/star_half.PNG" width="15px" class="mb-1">
 						<c:set var="pointCnt" value="${pointCnt + 1}" />
 					</c:if>
 					<c:if test="${pointCnt < 5}">
 						<c:forEach var="pointStar" begin="0" end="${5 - pointCnt - 1}" step="1">
-							<img src="/imgs/star_empty.PNG" width="15px" class="mb-1">
+							<img src="/imgs/store/star_empty.PNG" width="15px" class="mb-1">
 						</c:forEach>
 					</c:if>
 					</small>

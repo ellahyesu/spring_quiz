@@ -27,20 +27,9 @@ public class Lesson06Quiz01Controller {
 		return "lesson06/addNewSite";
 	}
 	
-	@RequestMapping("/is_duplication")
-	@ResponseBody
-	public Map<String, Boolean> isUrlDuplication(
-			@RequestParam("url") String url) {
-		boolean isDuplication = favoriteBO.existfavoriteByUrl(url);
-		
-		Map<String, Boolean> result = new HashMap<>();
-		result.put("isDuplication", isDuplication);
-		return result;
-	}
-	
 	// AJAX의 요청이 왔을 때,
 	// - 서버 쪽에서 @ResponseBody 어노테이션을 사용해야 한다.
-	// - 리턴되는 값이 반드시 있어야 한다.
+	// - 리턴되는 값이 반드시 있어야 한다!!!!(아작스에서 젤 중요한게 리턴값이 스트링으로 리턴된다는 사실이에요)
 	@PostMapping("/add_new_site")
 	@ResponseBody
 	public Map<String, String> addNewSite(
@@ -58,6 +47,7 @@ public class Lesson06Quiz01Controller {
 		return resultMap; // jackson 라이브러리 때문에 json 리턴
 	}
 	
+	// 즐겨찾기 목록 화면
 	@RequestMapping("/get_site")
 	public String getSite(Model model) {
 		List<Favorite> favoriteList = favoriteBO.getSiteList();

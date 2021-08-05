@@ -41,16 +41,16 @@
 							<td><fmt:formatDate value="${item.date}" pattern="yyyy년 M월 d일" /></td>
 							<c:choose>
 								<c:when test="${item.weather eq '비'}">
-									<td><img src="/imgs/rainy.jpg"></td>
+									<td><img src="/imgs/weatherhistory/rainy.jpg"></td>
 								</c:when>
 								<c:when test="${item.weather eq '흐림'}">
-									<td><img src="/imgs/cloudy.jpg"></td>
+									<td><img src="/imgs/weatherhistory/cloudy.jpg"></td>
 								</c:when>
 								<c:when test="${item.weather eq '맑음'}">
-									<td><img src="/imgs/sunny.jpg"></td>
+									<td><img src="/imgs/weatherhistory/sunny.jpg"></td>
 								</c:when>
 								<c:when test="${item.weather eq '구름조금'}">
-									<td><img src="/imgs/partlyCloudy.jpg"></td>
+									<td><img src="/imgs/weatherhistory/partlyCloudy.jpg"></td>
 								</c:when>
 							</c:choose>
 							<td>${item.temperatures}ºC</td>

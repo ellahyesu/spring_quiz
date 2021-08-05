@@ -19,42 +19,40 @@
 		<input type="text" id="name" class="form-control mb-2">
 		
 		<label for="url" class="mb-2">URL 주소</label>
-		<div class="d-flex mb-3">
+		<div class="d-flex">
 			<input type="text" id="url" class="form-control mr-3">	
 			<button type="button" id="urlCheckBtn" class="btn btn-info">중복확인</button>
 		</div>
-		<div id="statusArea"></div>
-		
-		<button type="button" id="addBtn" class="btn btn-success w-100">추가</button>
+		<small id="isDuplicationText" class="text-danger d-none">중복된 url 입니다</small>
+		<small id="availableUrlText" class="text-success d-none">저장 가능한 url 입니다</small>
+		<button type="button" id="addBtn" class="btn btn-success w-100 mt-3">추가</button>
 	</div>
 	
 	<script>
 		$(document).ready(function() {
-
+			// 주소 중복 확인
 			$('#urlCheckBtn').on('click', function() {
 
 				let url = $('#url').val().trim();
 				if (url == '') {
-					alert("주소를 입력해주세요");
+					alert("검사할 url을 입력해주세요");
 					return;
 				}
 				
-				if (url.startsWith('http://') == false && url.startsWith('https://') == false) {
-					alert("주소를 다시 확인해주세요");
-					return;
-				}
-				$('#statusArea').empty();
-				
+				// AJAX - url이 DB에 있는지 확인
 				$.ajax({
-					type: 'GET' // request method 
-					, url: "/lesson06/quiz01/is_duplication"
+					type: 'POST' // request method 
+					, url: "/lesson06/quiz02/is_duplication"
 					, data: {'url':url}
 					, success: function(data) {
-						alert("data: " + data.isDuplication);
-						if (data.isDuplication) {
-							$('#statusArea').append('<small class="text-danger">중복된 url 입니다</small>');
+						if (data.is_duplication) {
+							// 중복인 경우
+							$('#isDuplicationText').removeClass('d-none');
+							$('#availableUrlText').addClass('d-none');
 						} else {
-							$('#statusArea').append('<small class="text-success">저장 가능한 url 입니다</small>');
+							// 중복이 아닌, 사용 가능한 경우
+							$('#isDuplicationText').addClass('d-none');
+							$('#availableUrlText').removeClass('d-none');
 						}
 					}, error: function(e) {
 						alert("error: " + e);
@@ -62,6 +60,7 @@
 				});
 			});
 			
+			// 추가 버튼
 			$('#addBtn').on('click', function(e) {
 				//validation check
 				let name = $('#name').val().trim();
@@ -88,9 +87,7 @@
 					, data: {'name':name, 'url':url}
 					, dataType: 'json' // response body - AJAX 통신 후 response로는 String 또는 JSON이 리턴되어야 한다.
 					, success: function(data) {
-						
 						//alert("data: " + data.result);
-						
 						location.href="/lesson06/quiz01/get_site";
 					}, error: function(e) {
 						alert("error: " + e);
