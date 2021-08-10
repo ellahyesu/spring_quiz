@@ -18,8 +18,22 @@ public class BookingBO {
 		return bookingDAO.selectBookingList();
 	}
 	
+	public Booking getBookingListByNameAndPhoneNumber(
+			String name
+			, String phoneNumber) {
+		return bookingDAO.selectBookingListByNameAndPhoneNumber(name, phoneNumber);
+	}
+	
 	public int deleteBookingById(int id) {
 		return bookingDAO.deleteBookingById(id);
+	}
+	
+	public int addBooking(String name
+			, String date
+			, int day
+			, int headcount
+			, String phoneNumber) {
+		return bookingDAO.insertBooking(name, date, day, headcount, phoneNumber, "대기중");
 	}
 	
 }

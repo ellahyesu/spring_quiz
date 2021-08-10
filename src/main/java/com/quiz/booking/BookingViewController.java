@@ -17,16 +17,21 @@ public class BookingViewController {
 	@Autowired
 	private BookingBO bookingBO;
 	
-	@RequestMapping("/bookingMainView")
+	@RequestMapping("/booking_main_view")
 	public String bookingMainView() {
 		return "booking/main";
 	}
 	
-	@RequestMapping("/reservationListView")
+	@RequestMapping("/booking_list_view")
 	public String reservationListView(Model model) {
-		List<Booking> reservationList = bookingBO.getBookingList();
-		model.addAttribute("reservationList", reservationList);
-		return "booking/getReservationList";
+		List<Booking> bookingList = bookingBO.getBookingList();
+		model.addAttribute("bookingList", bookingList);
+		return "booking/getBookingList";
+	}
+	
+	@RequestMapping("/add_booking_view")
+	public String addFavoriteView() {
+		return "booking/addBooking";
 	}
 	
 }

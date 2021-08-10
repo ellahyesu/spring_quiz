@@ -42,26 +42,28 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="reservation" items="${reservationList}">
+					<c:forEach var="booking" items="${bookingList}">
 					<tr>
-						<td>${reservation.name}</td>
-						<td><fmt:formatDate value="${reservation.date}" pattern="yyyy년 M월 d일" /></td>
-						<td>${reservation.day}</td>
-						<td>${reservation.headcount}</td>
-						<td>${reservation.phoneNumber}</td>
+						<td>${booking.name}</td>
+						<td><fmt:formatDate value="${booking.date}" pattern="yyyy년 M월 d일" /></td>
+						<td>${booking.day}</td>
+						<td>${booking.headcount}</td>
+						<td>${booking.phoneNumber}</td>
 						<td>
-							<c:if test="${reservation.state eq '대기중'}">
-								<span class="text-info">대기중</span>
-							</c:if>
-							<c:if test="${reservation.state eq '확정'}">
-								<span class="text-success">확정</span>
-							</c:if>
-							<c:if test="${reservation.state eq '취소'}">
-								<span class="text-danger">취소</span>
-							</c:if>
+							<c:choose>
+								<c:when test="${booking.state eq '대기중'}">
+									<span class="text-info">대기중</span>
+								</c:when>
+								<c:when test="${booking.state eq '확정'}">
+									<span class="text-success">확정</span>
+								</c:when>
+								<c:when test="${booking.state eq '취소'}">
+									<span class="text-danger">취소</span>
+								</c:when>
+							</c:choose>
 						</td>
 						<td>
-							<button type="button" class="delete-btn btn btn-danger" data-reservation-id="${reservation.id}">삭제</button>
+							<button type="button" class="delete-btn btn btn-danger" data-booking-id="${booking.id}">삭제</button>
 						</td>
 					</tr>
 					</c:forEach>
@@ -77,15 +79,16 @@
 			
 			// data를 이용해서 태그에 data를 임시 저장해놓기
 			$('.delete-btn').on('click', function() {
-				let id = $(this).data('reservation-id');
-				alert(id);
+				let id = $(this).data('booking-id');
+				// alert(id);
 				
 				$.ajax({
-					type: 'POST' // 남의 id로 잘못들어가서 삭제하면 안되기 때문에 GET으로 하면 안됨.
+					//type: 'POST' // 남의 id로 잘못들어가서 삭제하면 안되기 때문에 GET으로 하면 안됨.
+					type: 'delete' // post와 비슷함
 					, data: {'id': id}
 					, url: '/booking/delete_booking_by_id'
 					, success: function(data) {
-						alert("성공: " + data);
+						// alert("성공: " + data);
 						if (data == 'success')
 							location.reload(); // 새로고침
 						else 
