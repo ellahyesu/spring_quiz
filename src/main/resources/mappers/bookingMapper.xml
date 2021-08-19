@@ -19,7 +19,7 @@
 			`booking`
 	</select>
 	
-	<select id="selectBookingListByNameAndPhoneNumber" resultType="com.quiz.booking.model.Booking">
+	<select id="selectBookingByNameAndPhoneNumber" resultType="com.quiz.booking.model.Booking">
 		SELECT
 			`id`
 			, `name`

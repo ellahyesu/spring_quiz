@@ -17,29 +17,32 @@
 <link rel="stylesheet" type="text/css" href="/css/booking/booking_style.css">
 </head>
 <body>
-<div id="wrap" class="container">
+	<div id="wrap" class="container">
 		<jsp:include page="header.jsp" />
 		<jsp:include page="menu.jsp" />
 		
 		<section>
 			<h1 class="text-center mt-3">예약 하기</h1>
 
-			<div class="mb-2 col-5 p-0"><b>이름</b></div>
-			<input type="text" id="name" class="form-control mb-2 col-5">
-			
-			<div class="mb-2 col-5 p-0"><b>숙박날짜</b></div>
-			<input type="text" id="date" class="form-control mb-2 col-5">
-
-			<div class="mb-2 col-5 p-0"><b>숙박일수</b></div>
-			<input type="text" id="day" class="form-control mb-2 col-5">
-			
-			<div class="mb-2 col-5 p-0"><b>숙박인원</b></div>
-			<input type="text" id="headcount" class="form-control mb-2 col-5">
-			
-			<div class="mb-2 col-5 p-0"><b>전화번호</b></div>
-			<input type="text" id="phoneNumber" class="form-control mb-2 col-5">
-
-			<button type="button" id="addBtn" class="btn btn-success w-100 mt-3 col-5">예약하기</button>
+			<div class="d-flex justify-content-center">
+				<div class="col-6">
+					<div class="mb-2 p-0"><b>이름</b></div>
+					<input type="text" id="name" class="form-control mb-2">
+					
+					<div class="mb-2 p-0"><b>숙박날짜</b></div>
+					<input type="text" id="date" class="form-control mb-2">
+		
+					<div class="mb-2 p-0"><b>숙박일수</b></div>
+					<input type="text" id="day" class="form-control mb-2">
+					
+					<div class="mb-2 p-0"><b>숙박인원</b></div>
+					<input type="text" id="headcount" class="form-control mb-2">
+					
+					<div class="mb-2 p-0"><b>전화번호</b></div>
+					<input type="text" id="phoneNumber" class="form-control mb-2">
+					<button type="button" id="addBtn" class="btn btn-success w-100 mt-3">예약하기</button>
+				</div>
+			</div>
 		</section>
 		
 		<jsp:include page="footer.jsp" />
@@ -111,10 +114,7 @@
 						alert("error: " + e);
 					}
 				});
-				
 			});
-			
-			
 			
 		});
 	</script>

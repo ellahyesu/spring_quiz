@@ -18,10 +18,10 @@ public class BookingBO {
 		return bookingDAO.selectBookingList();
 	}
 	
-	public Booking getBookingListByNameAndPhoneNumber(
+	public Booking getBookingByNameAndPhoneNumber(
 			String name
 			, String phoneNumber) {
-		return bookingDAO.selectBookingListByNameAndPhoneNumber(name, phoneNumber);
+		return bookingDAO.selectBookingByNameAndPhoneNumber(name, phoneNumber);
 	}
 	
 	public int deleteBookingById(int id) {

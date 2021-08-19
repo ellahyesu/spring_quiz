@@ -12,7 +12,7 @@ public interface BookingDAO {
 	
 	public List<Booking> selectBookingList();
 	
-	public Booking selectBookingListByNameAndPhoneNumber(
+	public Booking selectBookingByNameAndPhoneNumber(
 			@Param("name") String name
 			, @Param("phoneNumber") String phoneNumber);
 

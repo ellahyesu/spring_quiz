@@ -24,7 +24,7 @@ public class BookingRestController {
 	public Map<String, Object> getBookingListByNameAndPhoneNumber(
 			@RequestParam String name
 			, @RequestParam String phoneNumber) {
-		Booking booking = bookingBO.getBookingListByNameAndPhoneNumber(name, phoneNumber);
+		Booking booking = bookingBO.getBookingByNameAndPhoneNumber(name, phoneNumber);
 		Map<String, Object> resultMap = new HashMap<>();
 		resultMap.put("result", "success");
 		resultMap.put("booking", booking);
