@@ -1,10 +1,10 @@
-# Spring Toy Project
+# Spring Toy Projects
 
 ## <a href="https://github.com/ellahyesu/spring_quiz/commit/2f3d0eb4c31409c86a27c01e6cbf5ea51e049522">1. 펜션 예약 사이트</a>
 ### Description
 + 개발 기간
   - 2021.08.05 ~ 2021.08.10
-+ 사용 기술
++ 사용 기술(공통)
   - Java, HTML, CSS, JavaScript, jQuery, Bootstrap
   - Spring 4.11, Apache Tomcat 9.0, Mybatis, MySQL
   - MVC Pattern, Ajax
